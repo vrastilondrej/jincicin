@@ -4,6 +4,8 @@
       "user\\themes\\jinci-cin\\css\\custom.css",
       "user\\themes\\jinci-cin\\templates",
       "user\\pages",
-      "tailwind.js"
+      "tailwind.js",
+      "www\\user\\themes\\jinci-cin\\blueprints",
+      "www\\user\\themes\\jinci-cin\\templates"
    ]
 }
