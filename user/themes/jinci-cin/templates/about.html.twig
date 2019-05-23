@@ -1,0 +1,30 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+   <div class="container mx-auto">
+      <section class="pt-8 md:pt-8 px-4 block program">
+         <h1 class="text-center mb-8 md:mb-16">O Jinčím</h1>
+
+         <div class="bylo__items lg:w-4/5 mx-auto transition2-fade">
+            <div class="bylo__text text-secondary md:w-full" id="swup2">
+               {{page.content|markdown}}
+            </div>
+         </div>
+      </section>
+
+      <section class="pt-8 md:pt-8 px-4 block program">
+         <h2 class="text-center mb-8 text-5xl">Kdo za Jinčím stojí?</h2>
+
+      </section>
+
+      <section class="pt-8 md:pt-8 px-4 block program">
+         <h2 class="text-center mb-8 text-5xl">A kdo ještě?</h2>
+
+         <div class="bylo__items lg:w-4/5 mx-auto transition2-fade">
+            <div class="bylo__text text-secondary md:w-full" id="swup2">
+               {{header.text|markdown}}
+            </div>
+         </div>
+      </section>
+   </div>
+{% endblock %}

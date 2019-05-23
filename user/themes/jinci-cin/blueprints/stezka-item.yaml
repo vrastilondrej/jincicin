@@ -1,0 +1,83 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        program:
+          type: tab
+          title: Odpovědi
+          style: verical
+          fields:
+            header.image:
+              type: file
+              label: Obrázek nahoře
+              multiple: false
+              destination: "@self"
+              style: vertical
+              accept:
+                - image/*
+            header.answers:
+              name: Jednotlivé odpovědi
+              type: list
+              label: Jednotlivé odpovědi
+              btnLabel: Přidat odpověď
+              style: vertical
+              collapsed: false
+              fields:
+                .text:
+                  type: text
+                  label: Název dne
+                  classes: large
+                .image:
+                  type: file
+                  label: Galerie
+                  multiple: false
+                  destination: "@self"
+                  style: vertical
+                  accept:
+                    - image/*
+                .right:
+                  type: toggle
+                  label: Je to správná odpověď?
+                  highlight: 1
+                  options:
+                    1: Ano
+                    0: Ne
+                  validate:
+                    type: bool
+                .alerttext:
+                  type: text
+                  label: text po kliknutí
+            header.gps_settings:
+              type: fieldset
+              title: natavení mapy
+              info: Texty a pozice bodů
+              icon: map-marker
+              collapsed: true # Initial state of fieldset (see collapsible option)
+              collapsible: true # Whether one can expand the fieldset or not
+              fields:
+                header.map_s:
+                  type: text
+                  label: Šířka středu mapy
+                header.map_v:
+                  type: text
+                  label: Výška středu mapy
+                header.jsem_s:
+                  type: text
+                  label: Šířka tohoto bodu
+                header.jsem_v:
+                  type: text
+                  label: Výška tohoto bodu
+                header.budu_s:
+                  type: text
+                  label: Šířka cílového bodu
+                header.budu_v:
+                  type: text
+                  label: Výška cílového bodu
+                header.budu_text:
+                  type: text
+                  label: Text cílového bodu
+                header.jsem_text:
+                  type: text
+                  label: Text tohoto bodu

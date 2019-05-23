@@ -1,0 +1,76 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        pondeli:
+          type: tab
+          title: Jídla
+          fields:
+            header.datum:
+              type: date
+              label: Datum prvního dne
+            header.days:
+              name: features
+              type: list
+              label: Den
+              style: vertical
+              btnLabel: Přidat den
+              controls: top
+
+              fields:
+                .header:
+                      type: text
+                      label: Název dne
+                      classes: large
+                .items:
+                  name: features
+                  type: list
+                  style: vertical
+                  btnLabel: Přidat jídlo
+
+                  fields:
+                    .header:
+                      type: text
+                      label: Název jídla
+                    .addtext:
+                      type: text
+                      label: Text v závorce
+                    .price1:
+                      type: number
+                      label: Plná cena
+                      default: 82
+                      validate:
+                        required: true
+                        type: int
+                    .druh:
+                      type: select
+                      size: long
+                      classes: fancy
+                      label: Druh jídla
+                      help: Zvolte druh jídla
+                      options:
+                          default: jídlo1
+                          folder: jídlo2
+                          title: jídlo3
+                          date: jídlo4
+                    .ismenu:
+                      type: toggle
+                      label: Jídlo je menu
+                      highlight: 1
+                      help: Zaškrtni, pokud je jídlo v menu
+                      default: 0
+                      options:
+                          1: ano
+                          0: ne
+                    .isvegan:
+                      type: toggle
+                      label: Jídlo je veganské
+                      highlight: 1
+                      help: Zaškrtni, pokud je jídlo v menu
+                      default: 0
+                      options:
+                          1: ano
+                          0: ne
+

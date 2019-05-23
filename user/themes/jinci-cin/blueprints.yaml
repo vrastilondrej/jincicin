@@ -1,0 +1,27 @@
+name: Jinci Cin
+version: 0.1.0
+description: Grafika webovek festivalu Jinci Cin
+icon: rebel
+author:
+  name: Ondrej Vrastil
+  email: vrastilondrej@gmail.com
+homepage: https://github.com/ondrej-vrastil/grav-theme-jinci-cin
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/ondrej-vrastil/grav-theme-jinci-cin/issues
+readme: https://github.com/ondrej-vrastil/grav-theme-jinci-cin/blob/develop/README.md
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in Menu
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool

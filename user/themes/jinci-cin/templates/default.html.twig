@@ -1,0 +1,43 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+   <div class="container mx-auto">
+      <section class="pt-8 md:pt-24 text-center block">
+         <h1>Jinčí čin</h1>
+         <div class="flex justify-center flex-col md:flex-row items-center md:items-start transition2-fade">
+            <div class="max-w-sm m-4 md:mt-4 md:w-1/2 text-secondary leading-normal inline-block  text-left md:px-4">
+               <p>
+                  Udělat to jinak, řekli jsme si na začátku a tak se zrodil Jinčí čin. Festival, který  se v roce 2016 stal oficiálním vedlejším  a nepohádkovým programem festivalu Jičín - město pohádky. Hlavním smyslem akce se stala oslava města Jičína - jeho ducha, míst, která jsou tak trochu opuštěná nebo málo využívána. Jinčí čin se proto za čtyři roky své existence odehrával na mnoha neobvyklých místech a ukázal, že i taková mohou ožít kulturním děním.
+               </p>
+            </div>
+            <div class="max-w-sm mx-4 md:mt-4 md:w-1/2 text-secondary leading-normal inline-block  text-left md:px-4 md:mb-24">
+               <p>
+                  Dramaturgie festivalu je postavená tak, aby nabídla něco dětem, rodičům či prarodičům (a samozřejmě také všem mezi). Program propojuje akademický přístup - přednášky a diskuze zaměřené s uměním - divadlem, tancem, kreativní tvorbou a hudbou. Každý rok se snažíme vybrat neotřelé české muzikanty.
+               </p>
+               <p class="text-white font-bold">Festival se odehrává vždy druhý týden v září.
+               </p>
+            </div>
+         </div>
+
+         {% for photo in item.photo %}
+            {#    #}
+         {% endfor %}
+
+         <div class="gallery md:mb-32">
+            {% for radek in header.radky %}
+               <div class="gallery__group">
+                  {% for photo in radek.gallery %}
+                     <div class="gallery__item">
+                        {{ page.media[photo.name].lightbox(1024,768).cropResize(600, 600).html(item.title, item.title, 'w-full') }}
+                     </div>
+
+                  {% endfor %}
+               </div>
+            {% endfor %}
+         </div>
+      </section>
+
+      {#{{ page.content }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      #}
+   </div>
+{% endblock %}

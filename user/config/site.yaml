@@ -1,0 +1,17 @@
+title: 'Jinčí čin '
+default_lang: cs
+author:
+  name: 'Ondřej Vraštil'
+  email: vrastilondrej@gmail.com
+taxonomies:
+  - category
+  - tag
+metadata:
+  description: 'Jinčí Čin je alternativní program festivalu Jičín město pohádky'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+blog:
+  route: /blog

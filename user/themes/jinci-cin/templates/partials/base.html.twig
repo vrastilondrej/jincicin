@@ -1,0 +1,265 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html
+   lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+
+   {# ####################
+                                                                                                                                                                                                                                                                                                                                                             HEAD
+                                                                                                                                                                                                                                                                                                                                                             #################### #}
+   <head>
+      {% block head %}
+         <meta charset="utf-8">
+         <title>
+            {% if header.title %}
+               {{ header.title|e('html') }}
+               |
+            {% endif %}
+            {{ site.title|e('html') }}</title>
+
+         <meta content="IE=edge" http-equiv="X-UA-Compatible">
+         <meta content="width=device-width, initial-scale=1" name="viewport">
+         {% include 'partials/metadata.html.twig' %}
+
+         <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}"/>
+         <link rel="canonical" href="{{ page.url(true, true) }}"/>
+
+         {% block stylesheets %}
+            <link crossorigin="" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" rel="stylesheet"/>
+            {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
+            {% do assets.addCss('theme://css/public/custom.css', 98) %}
+            {% do assets.addCss('https://fonts.googleapis.com/css?family=Cutive+Mono|Oxygen:300,400,700|Sorts+Mill+Goudy:400,400i&display=swap&subset=latin-ext', 97) %}
+
+
+         {% endblock %}
+         {{ assets.css() }}
+
+         {% block javascripts %}
+            <script crossorigin="" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+            {% do assets.addJs('jquery', 100) %}
+         {% endblock %}
+         {{ assets.js() }}
+      {% endblock head %}
+   </head>
+
+
+   <body
+      class="{{ page.header.body_classes }} bg-primary text-white">
+
+      {#--- HEADER ---#}
+      <div class="full2016 cutive">2016
+         <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+         </div>
+      </div>
+      <div class="full2017 cutive">2017
+         <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+         </div>
+      </div>
+      <div class="full2018 cutive">2018
+         <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+         </div>
+      </div>
+
+      {% block header %}
+         {% include 'partials/header.html.twig' %}
+      {% endblock %}
+
+      {#--- BODY ---#}
+      {% block body %}
+         <section class="body-container">
+            <div class="transition-fade" id="swup">
+               {% block content %}{% endblock %}
+            </div>
+         </section>
+         {{ dump(page.parent.parent.slug) }}
+
+      {% endblock %}
+
+
+      {#--- FOOTER ---#}
+      {% block footer %}
+         <div class=" footer  text-center bg-primarydarker mt-16">
+            <div class="wrapper py-8 ">
+               Jinčí čin &copy;2019
+            </div>
+         </div>
+      {% endblock %}
+
+
+      {% block bottom %}
+         {{ assets.js('bottom') }}
+      {% endblock %}
+
+
+      <script src="/user/themes/jinci-cin/js/swup.js"></script>
+      <script>
+         var options = {
+            LINK_SELECTOR: 'a:not(.swup2):not([rel])'
+         }
+         const swup = new Swup(options);
+      </script>
+      {% block bottomJS %}
+         <script>
+            swup.on('pageView', function () {
+               $('a[rel="lightbox"]').featherlightGallery({openSpeed: 250, closeSpeed: 250, closeOnClick: 'background', closeOnEsc: '1', root: 'body'});
+
+            });
+         </script>
+      {% endblock %}
+      <script>
+         swup.on('animationInDone', function () {
+            $(".answer").on('click touch', function () {
+               $(this).addClass('answered');
+               $(this).find('.click-answer').fadeIn();
+            });
+            const testicek = document.querySelector('#mapid');
+            var mymap = L.map('mapid').setView([
+               testicek.dataset.vyska, testicek.dataset.sirka
+            ], 18);
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+               attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+               maxZoom: 18,
+               id: 'mapbox.streets',
+               accessToken: 'pk.eyJ1IjoidnJhc3RpbG9uZHJlaiIsImEiOiJjaWY4ZTViZWswMDRhdG1rb3JmeTRrMjNiIn0.3-VEsrwCWxaIVp1KdAONag'
+            }).addTo(mymap);
+            var marker = L.marker([testicek.dataset.jsemv, testicek.dataset.jsems]).addTo(mymap);
+            marker.bindPopup('Jsi zde', {
+               closeOnClick: false,
+               autoClose: false
+            }).openPopup();
+            var marker2 = L.marker([testicek.dataset.buduv, testicek.dataset.budus]).addTo(mymap);
+            marker2.bindPopup('Další bod', {
+               closeOnClick: false,
+               autoClose: false
+            }).openPopup();
+
+
+         });
+      </script>
+
+      <script>
+         $(".answer").on('click touch', function () {
+            $(this).addClass('answered');
+            $(this).find('.click-answer').fadeIn();
+         });
+         const testicek = document.querySelector('#mapid');
+         var mymap = L.map('mapid').setView([
+            testicek.dataset.vyska, testicek.dataset.sirka
+         ], 18);
+
+         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoidnJhc3RpbG9uZHJlaiIsImEiOiJjaWY4ZTViZWswMDRhdG1rb3JmeTRrMjNiIn0.3-VEsrwCWxaIVp1KdAONag'
+         }).addTo(mymap);
+         var marker = L.marker([testicek.dataset.jsemv, testicek.dataset.jsems]).addTo(mymap);
+         marker.bindPopup(testicek.dataset.jsemtext, {
+            closeOnClick: false,
+            autoClose: false
+         }).openPopup();
+         var marker2 = L.marker([testicek.dataset.buduv, testicek.dataset.budus]).addTo(mymap);
+         marker2.bindPopup(testicek.dataset.budutext, {
+            closeOnClick: false,
+            autoClose: false
+         }).openPopup();
+      </script>
+
+      <style>
+         .transition-fade {
+            opacity: 1;
+            transition: 0.15s;
+
+         }
+         html.to-full2016 .transition-fade {
+            transition: 1s;
+         }
+         html.to-full2017 .transition-fade {
+            transition: 1s;
+         }
+         html.to-full2018 .transition-fade {
+            transition: 1s;
+         }
+
+
+         html.is-animating .transition-fade {
+            opacity: 0
+         }
+         html.is-animating.to-full2016 .transition-fade {}
+         html.is-animating.to-full2016 .full2016 {
+            opacity: 1;
+            transform: translateY(0);
+            opacity: 1;
+            transform: translateY(0);
+            transition: 0.2s;
+            transition-delay: 0;
+
+         }
+         html.is-animating.to-full2017 .full2017 {
+            opacity: 1;
+            transform: translateY(0);
+            transition: 0.2s;
+            transition-delay: 0;
+
+
+         }
+
+         html.is-animating.to-full2018 .full2018 {
+            opacity: 1;
+            transform: translateY(0);
+            transition: 0.2s;
+            transition-delay: 0;
+
+
+         }
+         html.is-animating #swup2 {
+            opacity: 0;
+            transition: 0.5s;
+         }
+         html.is-animating #swup3 {
+            opacity: 0;
+            transition: 0.5s;
+            transform: scale(1.2);
+            transition-delay: 0.2s;
+
+         }
+         html.is-animating #swup4 {
+            opacity: 0;
+            transition: 0.5s;
+            transition-delay: 0.2s;
+
+         }
+
+         #swup3 {
+            opacity: 1;
+            transition: 0.5s;
+            transition-delay: 0.2s;
+            transform: scale(1);
+            transform-origin: bottom left;
+         }
+         #swup2 {
+            opacity: 1;
+            transition: 0.5s;
+            transition-delay: 0.2s
+         }
+         #swup4 {
+            opacity: 1;
+            transition: 0.5s;
+            transition-delay: 0.2s;
+         }
+      </style>
+   </body>
+
+</html>

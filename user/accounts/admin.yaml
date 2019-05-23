@@ -1,0 +1,14 @@
+email: vrastilondrej@gmail.com
+fullname: 'Ondřej Vraštil'
+title: Administrator
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$8W6q1O4OuaET.A2LAJ1FDOnfGllRvQnilOQroxTasoS7M/8/BsUgG
+pw_resets:
+  - 1556462574
+reset: '6a0b1c7c4182929e42572453dbaafed5::1557067374'

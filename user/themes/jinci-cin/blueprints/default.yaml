@@ -1,0 +1,42 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    header.body_classes:
+                      markdown: true
+                      description: "Available classes in Quark Theme (space separated):<br />`header-fixed`, `header-animated`, `header-dark`, `header-transparent`, `sticky-footer`"
+        program:
+          type: tab
+          title: Galerie
+          style: verical
+          fields:
+            header.radky:
+              name: Jednotlivé řádky
+              type: list
+              label: Jednotlivé řádky
+              btnLabel: Přidat řádek
+              style: vertical
+              collapsed: true
+              fields:
+                .gallery:
+                  type: file
+                  label: Galerie
+                  multiple: true
+                  destination: "@self"
+                  style: vertical
+                  accept:
+                    - image/*
+                .pocet:
+                  type: number
+                  label: Nastav počet fotek v řádku
+                  validate:
+                    min: 1
+                    max: 5

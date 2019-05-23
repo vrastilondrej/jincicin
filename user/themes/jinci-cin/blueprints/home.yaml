@@ -1,0 +1,34 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        pondeli:
+          type: tab
+          title: Youtube a texty
+          fields:
+            header.youtube:
+              type: text
+              label: odkaz na youtube video
+            header.podporte:
+              type: textarea
+              label: odkaz na youtube video
+            header.gallery:
+              type: file
+              label: Galerie
+              multiple: true
+              destination: "@self"
+              style: vertical
+              accept:
+                - image/*
+            header.others:
+              name: features
+              type: list
+              label: Další texty
+              btnLabel: Přidat
+              fields:
+                .header:
+                  type: text
+                  label: Text
+                  classes: large
