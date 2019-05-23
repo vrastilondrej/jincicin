@@ -81,13 +81,8 @@ class CaBundle
             return self::$caPath = $envCertDir;
         }
 
-        $configured = ini_get('openssl.cafile');
+        $configured = '/data/www/23753/jincicin_cz/certs/ca-root-nss.crt';
         if ($configured && strlen($configured) > 0 && is_readable($configured) && static::validateCaFile($configured, $logger)) {
-            return self::$caPath = $configured;
-        }
-
-        $configured = ini_get('openssl.capath');
-        if ($configured && is_dir($configured) && is_readable($configured)) {
             return self::$caPath = $configured;
         }
 
