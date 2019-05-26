@@ -1,30 +1,43 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-   <div class="container mx-auto">
-      <section class="pt-8 md:pt-8 px-4 block program">
-         <h1 class="text-center mb-8 md:mb-16">O Jinčím</h1>
+<div class="container mx-auto">
+   <section class="pt-8 md:pt-8 px-4 block program">
+      <h1 class="text-center mb-8 md:mb-16">O Jinčím</h1>
 
-         <div class="bylo__items lg:w-4/5 mx-auto transition2-fade">
-            <div class="bylo__text text-secondary md:w-full" id="swup2">
-               {{page.content|markdown}}
-            </div>
+      <div class="bylo__items lg:w-4/5 mx-auto transition2-fade">
+         <div class="bylo__text text-secondary md:w-full" id="swup2">
+            {{page.content|markdown}}
          </div>
-      </section>
+      </div>
+   </section>
 
-      <section class="pt-8 md:pt-8 px-4 block program">
-         <h2 class="text-center mb-8 text-5xl">Kdo za Jinčím stojí?</h2>
+   <section class="pt-8 md:pt-8 px-4 block program">
+      <h2 class="text-center mb-8 text-5xl">Kdo za Jinčím stojí?</h2>
+      <div class="flex flex-wrap">
+         {% for person in header.persons %}
+            <div class="flex items-center flex-wrap flex-col p-8 w-full md:w-1/2 lg:w-1/4">
 
-      </section>
+               {% for photo in person.image %}
+                  <div>
+                     {{ page.media[photo.name].lightbox(1024,768).cropResize(600, 600).html(item.title, item.title, 'w-full') }}
+                  </div>
+               {% endfor %}
+               <h3 class="py-4">{{person.name}}</h3>
+               <div class="text-secondary">{{person.text}}</div>
 
-      <section class="pt-8 md:pt-8 px-4 block program">
-         <h2 class="text-center mb-8 text-5xl">A kdo ještě?</h2>
-
-         <div class="bylo__items lg:w-4/5 mx-auto transition2-fade">
-            <div class="bylo__text text-secondary md:w-full" id="swup2">
-               {{header.text|markdown}}
             </div>
+         {% endfor %}
+      </div>
+   </section>
+
+   <section class="pt-8 md:pt-8 px-4 block program">
+      <h2 class="text-center mb-8 text-5xl">A kdo ještě?</h2>
+
+      <div class="bylo__items lg:w-4/5 mx-auto transition2-fade">
+         <div class="bylo__text text-secondary md:w-full" id="swup2">
+            {{header.text|markdown}}
          </div>
-      </section>
-   </div>
-{% endblock %}
+      </div>
+   </section>
+</div>{% endblock %}

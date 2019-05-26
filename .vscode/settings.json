@@ -7,6 +7,7 @@
       "tailwind.js",
       "www\\user\\themes\\jinci-cin\\blueprints",
       "www\\user\\themes\\jinci-cin\\templates",
-      "www\\user\\pages"
+      "www\\user\\pages",
+      "www\\user\\themes\\jinci-cin\\blueprints\\about.yaml"
    ]
 }

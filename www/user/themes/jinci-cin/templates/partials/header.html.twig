@@ -1,7 +1,7 @@
 <div class="header">
    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
       <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
-         {{ config.site.title }}
+         <img class="logo" src="{{ url('theme://images/logo.svg') }}">
       </a>
       <div class="hamburger__wrapper cutive" id="js-hamburger-wrapper">
          <button class="hamburger hamburger--squeeze" id="js-hamburger">
@@ -13,22 +13,21 @@
       </div>
 
       {% block header_navigation %}
-         <nav class="main-nav cutive" id="nav">
-            {% include 'partials/navigation.html.twig' %}
-         </nav>
-      {% endblock %}
+      <nav class="main-nav cutive" id="nav">
+         {% include 'partials/navigation.html.twig' %}
+      </nav>
+   {% endblock %}
 
-      <script>
-         var el = document.getElementById('nav');
-         var button = document.getElementById("js-hamburger");
-         var wrapper = document.getElementById("js-hamburger-wrapper");
+   <script>
+      var el = document.getElementById('nav');
+      var button = document.getElementById("js-hamburger");
+      var wrapper = document.getElementById("js-hamburger-wrapper");
 
-         function myFunction() {
-            el.classList.toggle("active");
-            button.classList.toggle("is-active");
-         }
-         el.onclick = myFunction;
-         wrapper.onclick = myFunction;
-      </script>
-   </div>
-</div>
+      function myFunction() {
+         el.classList.toggle("active");
+         button.classList.toggle("is-active");
+      }
+      el.onclick = myFunction;
+      wrapper.onclick = myFunction;
+   </script>
+</div></div>
