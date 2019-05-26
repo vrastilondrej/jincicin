@@ -1,0 +1,19 @@
+state: enabled
+_json:
+  avatar: "null"
+  state: '"enabled"'
+  hashed_password: '"$2y$10$6itYs1Wvxv.nImhsZcwZjOMkhiJ9SjpW2DCsksjW63zaCN\/sE5DN."'
+email: jincicin@gmail.com
+fullname: "Jinčí čin"
+title: "Editor stránek"
+language: cs
+twofa_enabled: false
+twofa_secret: KW3OUGQLIJZX6YPGLF42GQQQ4YU65FMH
+hashed_password: $2y$10$6itYs1Wvxv.nImhsZcwZjOMkhiJ9SjpW2DCsksjW63zaCN/sE5DN.
+access:
+  site:
+    login: true
+  admin:
+    login: true
+    pages: true
+    super: false

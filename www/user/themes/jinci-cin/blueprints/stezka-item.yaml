@@ -4,10 +4,7 @@ form:
   fields:
     tabs:
       fields:
-        program:
-          type: tab
-          title: Odpovědi
-          style: verical
+        content:
           fields:
             header.image:
               type: file
@@ -17,45 +14,14 @@ form:
               style: vertical
               accept:
                 - image/*
-            header.answers:
-              name: Jednotlivé odpovědi
-              type: list
-              label: Jednotlivé odpovědi
-              btnLabel: Přidat odpověď
-              style: vertical
-              collapsed: false
-              fields:
-                .text:
-                  type: text
-                  label: Název dne
-                  classes: large
-                .image:
-                  type: file
-                  label: Galerie
-                  multiple: false
-                  destination: "@self"
-                  style: vertical
-                  accept:
-                    - image/*
-                .right:
-                  type: toggle
-                  label: Je to správná odpověď?
-                  highlight: 1
-                  options:
-                    1: Ano
-                    0: Ne
-                  validate:
-                    type: bool
-                .alerttext:
-                  type: text
-                  label: text po kliknutí
+           
             header.gps_settings:
               type: fieldset
               title: natavení mapy
               info: Texty a pozice bodů
               icon: map-marker
-              collapsed: true # Initial state of fieldset (see collapsible option)
-              collapsible: true # Whether one can expand the fieldset or not
+              collapsed: false # Initial state of fieldset (see collapsible option)
+              collapsible: false # Whether one can expand the fieldset or not
               fields:
                 header.map_s:
                   type: text
@@ -81,3 +47,44 @@ form:
                 header.jsem_text:
                   type: text
                   label: Text tohoto bodu
+            answers:
+              type: fieldset
+              title: Odpovědi
+              info: Texty a obrázky
+              icon: map-marker
+              collapsed: false # Initial state of fieldset (see collapsible option)
+              collapsible: false # Whether one can expand the fieldset or not
+              fields:
+                  header.answers:
+                    name: Jednotlivé odpovědi
+                    type: list
+                    label: Jednotlivé odpovědi
+                    btnLabel: Přidat odpověď
+                    style: vertical
+                    collapsed: false
+                    collapsible: false
+                    fields:
+                      .text:
+                        type: text
+                        label: Text odpovědi
+                        classes: large
+                      .image:
+                        type: file
+                        label: Galerie
+                        multiple: false
+                        destination: "@self"
+                        style: vertical
+                        accept:
+                          - image/*
+                      .right:
+                        type: toggle
+                        label: Je to správná odpověď?
+                        highlight: 1
+                        options:
+                          1: Ano
+                          0: Ne
+                        validate:
+                          type: bool
+                      .alerttext:
+                        type: text
+                        label: text po kliknutí
