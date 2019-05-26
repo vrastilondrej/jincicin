@@ -14,7 +14,6 @@ form:
               style: vertical
               accept:
                 - image/*
-           
             header.gps_settings:
               type: fieldset
               title: natavení mapy
