@@ -9,39 +9,6 @@ form:
           title: Program
           style: verical
           fields:
-            header.fieldset:
-              type: fieldset
-              title: Nastavení stránky
-              info: (Úvod, galerie...)
-              icon: cog
-              collapsed: true # Initial state of fieldset (see collapsible option)
-              collapsible: true # Whether one can expand the fieldset or not
-              fields:
-                galerie:
-                  type: tab
-                  title: Galerie
-                  style: verical
-                  fields:
-                    header.radky:
-                      name: Jednotlivé řádky
-                      type: list
-                      label: Jednotlivé řádky galerie
-                      btnLabel: Přidat řádek
-                      style: vertical
-                      fields:
-                        .gallery:
-                          type: file
-                          multiple: true
-                          destination: "@self"
-                          style: vertical
-                          accept:
-                            - image/*
-                        .pocet:
-                          type: number
-                          label: Nastav počet fotek v řádku
-                          validate:
-                            min: 1
-                            max: 5
             header.title:
               type: text
               label: Název sekce
@@ -49,14 +16,26 @@ form:
             header.text:
               type: editor
               label: Text
-            header.gallery:
-              type: file
-              label: Galerie
-              multiple: true
-              destination: "@self"
+            header.radky:
+              name: Jednotlivé řádky
+              type: list
+              label: Jednotlivé řádky galerie
+              btnLabel: Přidat řádek
               style: vertical
-              accept:
-                - image/*
+              fields:
+                .gallery:
+                  type: file
+                  multiple: true
+                  destination: "@self"
+                  style: vertical
+                  accept:
+                    - image/*
+                .pocet:
+                  type: number
+                  label: Nastav počet fotek v řádku
+                  validate:
+                    min: 1
+                    max: 5
             header.days:
               name: Jednotlivé dny
               type: list
