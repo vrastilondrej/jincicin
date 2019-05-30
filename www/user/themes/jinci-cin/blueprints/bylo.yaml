@@ -17,9 +17,6 @@ form:
               collapsed: true # Initial state of fieldset (see collapsible option)
               collapsible: true # Whether one can expand the fieldset or not
               fields:
-                header.text:
-                  type: editor
-                  label: Ůvodní text
                 galerie:
                   type: tab
                   title: Galerie
