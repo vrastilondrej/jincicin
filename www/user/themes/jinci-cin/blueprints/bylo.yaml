@@ -20,21 +20,31 @@ form:
                 header.text:
                   type: editor
                   label: Ůvodní text
-                header.image:
-                  type: file
-                  destination: "@self"
-                  label: Logo pobočky
-                  style: vertical
-                  accept:
-                    - image/*
-                header.gallery:
-                  type: file
-                  label: Galerie
-                  multiple: true
-                  destination: "@self"
-                  style: vertical
-                  accept:
-                    - image/*
+                galerie:
+                  type: tab
+                  title: Galerie
+                  style: verical
+                  fields:
+                    header.radky:
+                      name: Jednotlivé řádky
+                      type: list
+                      label: Jednotlivé řádky galerie
+                      btnLabel: Přidat řádek
+                      style: vertical
+                      fields:
+                        .gallery:
+                          type: file
+                          multiple: true
+                          destination: "@self"
+                          style: vertical
+                          accept:
+                            - image/*
+                        .pocet:
+                          type: number
+                          label: Nastav počet fotek v řádku
+                          validate:
+                            min: 1
+                            max: 5
             header.title:
               type: text
               label: Název sekce

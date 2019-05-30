@@ -63,7 +63,24 @@
                </a>
             </div>
          {% endif %}
-
       </div>
+      {% if header.radky %}
+<div class="container mx-auto">
+         <h2 class="text-center my-8 md:my-16">Fotogalerie ročníku {{page.title}}</h2>
+
+      <div class="gallery md:mb-32">
+         {% for radek in header.radky %}
+            <div class="gallery__group">
+               {% for photo in radek.gallery %}
+                  <div class="gallery__item">
+                     {{ page.media[photo.name].lightbox(1024,768).cropResize(600, 600).html(item.title, item.title, 'w-full') }}
+                  </div>
+
+               {% endfor %}
+            </div>
+         {% endfor %}
+      </div>
+      </div>
+      {% endif %}
    </div>
 {% endblock %}
