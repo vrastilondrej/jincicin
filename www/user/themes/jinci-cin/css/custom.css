@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 
+a {
+   color: #c6d5dd;
+}
+
+ul {
+   margin: 0;
+   padding: 0 0 0 1rem;
+}
+
+p+ul {
+   margin: -1rem 0 0 0;
+
+}
 
 .right-answer.answered .answer__text {
    border: 2px solid rgb(14, 255, 74) !important;
