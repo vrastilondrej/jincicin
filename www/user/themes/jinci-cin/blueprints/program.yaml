@@ -11,74 +11,51 @@ form:
           fields:
             header.fieldset:
               type: fieldset
-              title: Nastavení stránky
-              info: (Úvod, galerie...)
+              title: Program
+              info: program festivalu dělený do jednotlivých dnů
               icon: cog
-              collapsed: true     # Initial state of fieldset (see collapsible option)
               collapsible: true    # Whether one can expand the fieldset or not 
               fields:
-                header.text:
-                  type: editor
-                  label: Ůvodní text
-                header.image:
-                  type: file
-                  destination: '@self'
-                  label: Logo pobočky
+                header.section:
+                  name: Sekce
+                  type: list
+                  label: Sekce
+                  btnLabel: Přidat sekci
+                  controls: bottom
                   style: vertical
-                  accept:
-                          - image/*  
-                header.gallery:
-                  type: file
-                  label: Galerie
-                  multiple: true
-                  destination: '@self'
-                  style: vertical
-                  accept:
-                     - image/*
-            header.section:
-              name: Sekce
-              type: list
-              label: Sekce
-              btnLabel: Přidat sekci
-              controls: bottom
-              style: vertical
-    
-              fields:
-                .title:
-                      type: text
-                      label: Název sekce
-                      classes: large
-                .place:
-                      type: text
-                      label: Doplňující text (místo, budova, podtitulek)
-                      classes: large
-                .items:
-                      name: Položka
-                      type: list
-                      label: Název položky
-                      btnLabel: Přidat položku
-                      style: vertical
-                      collapsed: true
-                      fields:
-                        .title:
-                              type: text
-                              label: Název
-                              classes: large 
-                        .hour:
-                              type: text
-                              label: Čas
-                              classes: large 
-                        .place:
-                              type: text
-                              label: Místonst
-                              classes: large      
-                        .text:
-                              type: editor
-                              label: Text
-                        .photo:
-                              type: file
-                              label: Obrázek 
-                              style: vertical
-                              destination: '@self'
-                              accept:
-                                - image/*     
+                  fields:
+                    .title:
+                          type: text
+                          label: Název dne
+                          classes: large
+                    .place:
+                          type: text
+                          label: Doplňující text (místo, budova, podtitulek)
+                          classes: large
+                    .items:
+                          name: Položka
+                          type: list
+                          label: Název položky
+                          btnLabel: Přidat položku
+                          style: vertical
+                          collapsed: true
+                          fields:
+                            .title:
+                                  type: text
+                                  label: Název
+                                  classes: large 
+                            .hour:
+                                  type: text
+                                  label: Čas
+                                  classes: large  
+                            .text:
+                                  type: editor
+                                  label: Text
+                            .photo:
+                                  type: file
+                                  label: Obrázek 
+                                  style: vertical
+                                  destination: '@self'
+                                  accept:
+                                    - image/*     
+            
