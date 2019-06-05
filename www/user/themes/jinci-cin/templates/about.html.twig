@@ -20,7 +20,7 @@
 
                {% for photo in person.image %}
                   <div>
-                     {{ page.media[photo.name].lightbox(1024,768).cropResize(600, 600).html(item.title, item.title, 'w-full') }}
+                     {{ page.media[photo.name].lightbox(1024,768).cropZoom(300, 300).html(item.title, item.title, 'w-full') }}
                   </div>
                {% endfor %}
                <h3 class="py-4">{{person.name}}</h3>
