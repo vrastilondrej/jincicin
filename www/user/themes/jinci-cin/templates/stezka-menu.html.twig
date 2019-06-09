@@ -3,10 +3,10 @@
 {% block content %}
    <div class="mx-auto">
       <section class="pt-8 md:pt-8 px-4 block program">
-         <h1 class="text-center mb-8 md:mb-32">{{page.title}}</h1>
-         <div class="bylo__items lg:w-4/5 mx-auto   transition2-fade">
+         <h1 class="text-center mb-8 md:mb-16">{{page.title}}</h1>
+         <div class="bylo__items lg:w-4/5 mx-auto mb-8 md:mb-16 transition2-fade">
             <div class="bylo__text text-secondary md:w-full" id="swup2">
-               {{header.text|markdown}}
+               {{page.content|markdown}}
             </div>
          </div>
       </section>

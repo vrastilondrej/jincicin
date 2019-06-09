@@ -10,7 +10,7 @@ var browserSync = require('browser-sync').create();
 // Static server
 gulp.task('start', function () {
    browserSync.init({
-      proxy: "jincicin.test"
+      proxy: "http://jincicincz.test"
    });
 
    gulp.watch("./user/themes/jinci-cin/css/*.css", ['tailwind', browserSync.reload]);
