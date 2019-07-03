@@ -46,6 +46,10 @@ form:
                 header.jsem_text:
                   type: text
                   label: Text tohoto bodu
+                header.map_zoom:
+                  type: text
+                  label: nastavení příblížení fotky
+                  default: "18"
             answers:
               type: fieldset
               title: Odpovědi

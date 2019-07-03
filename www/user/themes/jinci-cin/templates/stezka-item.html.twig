@@ -23,8 +23,8 @@
             {% for answer in header.answers %}
                <div class="w-full lg:w-1/3 flex answer answer-{{loop.index}} {% if answer.right %}right-answer{% else %}false-answer{% endif %} cursor-pointer">
                   <div class="m-4 p-4 lg:p-4 bg-primary border border-solid nice-border flex-1 flex items-end justify-center" style="background-image:linear-gradient(rgba(14,40,77,0.2), rgba(14,40,77,0.4)),url('{% for image in answer.image %}/{{ image.path}}{% endfor %}');     background-size: contain;
-                                                                            background-position: center center;
-                                                                            background-repeat: no-repeat;">
+                                                                                                                            background-position: center center;
+                                                                                                                            background-repeat: no-repeat;">
                      <div class="text-lg md:text-2xl text-secondary text-center p-4  mb-2 answer__text bg-primary">{{answer.text}}<div class="click-answer text-base my-4" style="display:none">
                            {% if answer.right %}:-){% else %}:-(
                            {% endif %}<br><br>{{answer.alerttext}}</div>
@@ -35,7 +35,7 @@
             {% endfor %}
          </div>
          <div class="bylo__items lg:w-4/5 mx-auto   transition2-fade">
-            <div data-budus="{{header.budu_s}}" data-budutext="{{header.budu_text}}" data-buduv="{{header.budu_v}}" data-jsems="{{header.jsem_s}}" data-jsemtext="{{header.jsem_text}}" data-jsemv="{{header.jsem_v}}" data-sirka="{{header.map-s}}" data-vyska="{{header.map_v}}" id="mapid"></div>
+            <div data-budus="{{header.budu_s}}" data-budutext="{{header.budu_text}}" data-buduv="{{header.budu_v}}" data-jsems="{{header.jsem_s}}" data-jsemtext="{{header.jsem_text}}" data-jsemv="{{header.jsem_v}}" data-sirka="{{header.map_s}}" data-vyska="{{header.map_v}}" data-zoom="{{header.map_zoom}}" id=" mapid"></div>
          </div>
       </section>
       <div class="text-center p-8">
