@@ -126,22 +126,21 @@
             const testicek = document.querySelector('#mapid');
             var mymap = L.map('mapid').setView([
                testicek.dataset.vyska, testicek.dataset.sirka
-            ], testicek.dataset.zoom);
+            ], 18);
 
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-               minZoom: 10,
                maxZoom: 18,
                id: 'mapbox.streets',
                accessToken: 'pk.eyJ1IjoidnJhc3RpbG9uZHJlaiIsImEiOiJjaWY4ZTViZWswMDRhdG1rb3JmeTRrMjNiIn0.3-VEsrwCWxaIVp1KdAONag'
             }).addTo(mymap);
             var marker = L.marker([testicek.dataset.jsemv, testicek.dataset.jsems]).addTo(mymap);
-            marker.bindPopup('Jsi zde', {
+            marker.bindPopup(testicek.dataset.jsemtext, {
                closeOnClick: false,
                autoClose: false
             }).openPopup();
             var marker2 = L.marker([testicek.dataset.buduv, testicek.dataset.budus]).addTo(mymap);
-            marker2.bindPopup('Další bod', {
+            marker2.bindPopup(testicek.dataset.budutext, {
                closeOnClick: false,
                autoClose: false
             }).openPopup();
@@ -149,6 +148,35 @@
 
          });
       </script>
+
+      <script>
+         $(".answer").on('click touch', function () {
+            $(this).addClass('answered');
+            $(this).find('.click-answer').fadeIn();
+         });
+         const testicek = document.querySelector('#mapid');
+         var mymap = L.map('mapid').setView([
+            testicek.dataset.vyska, testicek.dataset.sirka
+         ], 18);
+
+         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoidnJhc3RpbG9uZHJlaiIsImEiOiJjaWY4ZTViZWswMDRhdG1rb3JmeTRrMjNiIn0.3-VEsrwCWxaIVp1KdAONag'
+         }).addTo(mymap);
+         var marker = L.marker([testicek.dataset.jsemv, testicek.dataset.jsems]).addTo(mymap);
+         marker.bindPopup(testicek.dataset.jsemtext, {
+            closeOnClick: false,
+            autoClose: false
+         }).openPopup();
+         var marker2 = L.marker([testicek.dataset.buduv, testicek.dataset.budus]).addTo(mymap);
+         marker2.bindPopup(testicek.dataset.budutext, {
+            closeOnClick: false,
+            autoClose: false
+         }).openPopup();
+      </script>
+
       <style>
          .transition-fade {
             opacity: 1;
