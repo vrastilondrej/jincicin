@@ -63,8 +63,8 @@ body {
 
 h1 {
    font-family: 'Cutive Mono', sans-serif;
-   font-size: 5rem;
-   line-height: 6rem;
+   font-size: 2.5rem;
+   line-height: 3.5rem;
    font-weight: 400;
 }
 
@@ -159,6 +159,12 @@ img {
    -webkit-filter: grayscale(29%) contrast(80%) brightness(130%);
    filter: grayscale(29%) contrast(80%) brightness(130%);
 }
+@screen sm{
+   h1{
+      font-size: 4.5rem
+   }
+   line-height: 6rem
+}
 
 @screen md {
    .btn-header {
@@ -181,12 +187,12 @@ img {
 
    h1 {
       font-size: 12vw;
-      line-height: 12rem
+      line-height: 15vw
    }
 
    .program h1 {
       font-size: 10vw;
-      line-height: 10rem
+      line-height: 11vw
    }
 }
 
@@ -401,6 +407,8 @@ img {
    .hamburger__wrapper {
       display: none;
    }
+
+   
 }
 
 .hamburger {

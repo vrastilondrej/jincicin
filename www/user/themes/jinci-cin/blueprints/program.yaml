@@ -51,6 +51,12 @@ form:
                             .text:
                                   type: editor
                                   label: Text
+                            .place:
+                                  type: text
+                                  label: Název místa
+                            .place-link:
+                                  type: text
+                                  label: odkaz na místo      
                             .photo:
                                   type: file
                                   label: Obrázek 
