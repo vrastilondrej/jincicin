@@ -105,7 +105,7 @@
       <script src="/user/themes/jinci-cin/js/swup.js"></script>
       <script>
          var options = {
-            LINK_SELECTOR: 'a[href*="jincicin.cz"]:not(.swup2):not([rel])'
+            LINK_SELECTOR: 'a[href^="' + window.location.origin + '"]:not(.swup2):not([rel])'
          }
          const swup = new Swup(options);
       </script>
