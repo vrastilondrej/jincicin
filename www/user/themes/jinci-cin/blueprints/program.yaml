@@ -54,7 +54,7 @@ form:
                             .place:
                                   type: text
                                   label: Název místa
-                            .place-link:
+                            .place_link:
                                   type: text
                                   label: Odkaz na místo      
                             .photo:

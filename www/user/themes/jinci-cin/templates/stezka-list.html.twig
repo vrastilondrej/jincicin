@@ -1,38 +1,66 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-   <div class="mx-auto">
-      <section class="pt-8 md:pt-8 px-4 block program">
-         <h2 class="text-center text-2xl cutive">sídliště</h2>
+    <div class="mx-auto">
+        <section class="pt-8 md:pt-8 px-4 block program">
+            <h2 class="text-center text-2xl cutive">sídliště</h2>
 
-         <h1 class="text-center mb-8 md:mb-16">{{ page.title }}</h1>
-         <div class="bylo__items lg:w-4/5 mx-auto  mb-8 md:mb-16   transition2-fade">
-            <div class="bylo__text text-secondary md:w-full" id="swup2">
-               {{page.content|markdown}}
+            <h1 class="text-center mb-8 md:mb-16">{{ page.title }}</h1>
+            <div class="bylo__items lg:w-4/5 mx-auto  mb-8 md:mb-16   transition2-fade">
+                <div class="bylo__text text-secondary md:w-full" id="swup2">
+                    {{page.content|markdown}}
+                    {{ dump(page) }}
+                </div>
+                <div class=" md:w-2/3 text-center mx-auto" id="swup2">
+                    <style>
+                        .embed-container {
+                            position: relative;
+                            padding-bottom: 56.25%;
+                            height: 0;
+                            overflow: hidden;
+                            max-width: 100%;
+                        }
+                        .embed-container iframe,
+                        .embed-container object,
+                        .embed-container embed {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    </style>
+
+
+                    <div class='embed-container'>
+                        {% if page.slug == "husova" %}
+                            <iframe allowfullscreen frameborder='0' src='https://www.youtube.com/embed/I3c_xJ7k3j4'></iframe>
+                        </div>
+                    {% else %}
+                        <iframe allowfullscreen frameborder='0' src='https://www.youtube.com/embed/hAtsC0I_eFM'></iframe>
+                    {% endif %}
+                </div>
             </div>
-         </div>
-      </section>
-   </div>
-   <div class="flex flex-wrap m-2 justify-center mb-8 md:mb-16" id="swup4">
-      {% for p in page.children %}
-         <a href="{{ p.url }}" class="w-full lg:w-1/2 flex  no-underline">
+        </div>
+
+    </section>
+</div>
+<div class="flex flex-wrap m-2 justify-center mb-8 md:mb-16" id="swup4">
+    {% for p in page.children %}
+        <a href="{{ p.url }}" class="w-full lg:w-1/2 flex  no-underline">
             <div class="m-4 p-4 lg:p-8 bg-primary border border-solid nice-border flex-1" style="background-image:linear-gradient(rgba(14,40,77,0.7), rgba(14,40,77,0.9)),url('{% for image in day.image %}/{{ image.path}}{% endfor %}'); background-size:cover;background-position: center center;">
-               <div class="text-lg md:text-2xl text-secondary flex justify-between items-center">{{p.title}}
-                  {% for photo in p.header.image %}
-                     {{ dump(p) }}
+                <div class="text-lg md:text-2xl text-secondary flex justify-between items-center">{{p.title}}
+                    {% for photo in p.header.image %}
+                        <div>
+                            {{ page.find(p.url).media[photo.name].html(item.title, item.title, 'w-32 md:w-auto md:h-32 max') }}
+                        </div>
 
-                     {{ dump(p.url) }}
-                     <div class="w-1/5" style="width:200px">
-                        {{ page.find(p.url).media[photo.name].html(item.title, item.title, 'w-full') }}
-                     </div>
-
-                  {% endfor %}
-               </div>
+                    {% endfor %}
+                </div>
             </div>
-         </a>
-      {% endfor %}
-   </div>
-   <div class="text-center">
-      <a class="text-2xl text-white cutive" href=" {{ page.parent.url }} ">Zpět</a>
-   </div>
-{% endblock %}
+        </a>
+    {% endfor %}
+</div>
+<div class="text-center">
+    <a class="text-2xl text-white cutive" href=" {{ page.parent.url }} ">Zpět</a>
+</div>{% endblock %}
